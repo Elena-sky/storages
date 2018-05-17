@@ -10,12 +10,6 @@
                 <div class="row mb-2">
                     <div class="offset-md-6 col-sm-6">
 
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active">Warehouse Form</li>

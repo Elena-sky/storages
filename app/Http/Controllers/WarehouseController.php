@@ -28,7 +28,9 @@ class WarehouseController extends Controller
      */
     public function index()
     {
-        return view('warehouses.list');
+        $warehouses = $this->rWarehouse->all();
+
+        return view('warehouses.list', compact('warehouses'));
     }
 
     /**
@@ -76,7 +78,11 @@ class WarehouseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $warehouse = $this->rWarehouse->show($id);
+
+        $urlLogo = ($warehouse->logo)? $this->rWarehouse->getLogo($warehouse->logo) : null;
+
+        return view('warehouses.edit', compact('warehouse', 'urlLogo'));
     }
 
     /**
@@ -86,9 +92,13 @@ class WarehouseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreWarehouse $request, $id)
     {
-        //
+        $this->rWarehouse->updateWarehouse($id, $request);
+
+        //Display a successful message
+        return redirect()->route('warehouses.edit', $id)
+            ->with('status', 'Warehouse - ' . $request['title'] . ' updated');
     }
 
     /**
@@ -99,6 +109,8 @@ class WarehouseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->rWarehouse->destroy($id);
+
+        return;
     }
 }
