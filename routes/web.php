@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/dashboard', 'IndexController@index')->name('dashboard');
+
+
 Route::group([ 'middleware' => 'auth'], function(){
 
     Route::resource('warehouses', 'WarehouseController');
