@@ -1,5 +1,6 @@
 ## About
 Mini CRM for the management of warehouses and goods.
+http://joxi.ru/5mdqZvpSvjjqW2
 
 
 ## Implemented
@@ -18,6 +19,7 @@ Mini CRM for the management of warehouses and goods.
 - Js (Ajax, JQ, datatable);
 - Bootstrap;
 - MySQL;
+
 
 
 ## Usage
