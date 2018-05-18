@@ -128,5 +128,15 @@ class EloquentWarehouseRepository extends LogoRepository
         return $warehouse;
     }
 
+    /**
+     * Get count of the collection
+     *
+     * @return mixed
+     */
+    public function WarehouseCount()
+    {
+        return Warehouses::count();
+    }
+
 
 }

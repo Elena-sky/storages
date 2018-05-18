@@ -85,4 +85,14 @@ class EloquentProductRepository
         Products::destroy($id);
     }
 
+    /**
+     * Get count of the collection
+     *
+     * @return mixed
+     */
+    public function ProductCount()
+    {
+        return Products::count();
+    }
+
 }
