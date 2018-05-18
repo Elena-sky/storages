@@ -1,7 +1,9 @@
 ## About
 Mini CRM for the management of warehouses and goods.
+
 http://joxi.ru/5mdqZvpSvjjqW2
 
+http://joxi.ru/D2PLp3RHdQQ1V2
 
 ## Implemented
 - Localization
