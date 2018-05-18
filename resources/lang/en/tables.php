@@ -13,8 +13,20 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'logout' => 'Logout',
+    'warehouses' => 'Warehouses',
+    'products' => 'Products',
+    'resources' => 'resources in storage',
+    'show' => 'Show',
+    'create' => 'Create|Created',
+    'list_of_warehouses' => 'List of warehouses',
+    'list_of_products' => 'List of products',
+    'title' => 'Title',
+    'email' => 'Email',
+    'logo' => 'Logo',
+    'sku' => 'Sku',
+    'website' => 'Website',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'description' => 'Description',
 
 ];

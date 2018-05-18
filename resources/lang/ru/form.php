@@ -13,8 +13,11 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'logout' => 'Logout',
+    'new_warehouse' => 'Новый склад',
+    'new_product' => 'Новый продукт',
+    'edit_product' => 'Редактировать продукт',
+    'edit_warehouse' => 'Редактировать склад',
+    'current_logo' => 'Текущий логотип',
+    'new_logo' => 'Новый логотип',
 
 ];

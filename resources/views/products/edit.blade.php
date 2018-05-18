@@ -11,8 +11,8 @@
                     <div class="offset-md-6 col-sm-6">
 
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Product Form</li>
+                            <li class="breadcrumb-item"><a href="/">{{$lang['dashboard']}}</a></li>
+                            <li class="breadcrumb-item active">{{$lang['edit_product']}}</li>
                         </ol>
 
                     </div>
@@ -27,7 +27,7 @@
 
                 <div class="offset-md-3 col-sm-6">
 
-                    <h1>Update product</h1>
+                    <h1>{{$lang['edit_product']}}</h1>
 
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -50,27 +50,27 @@
                     <input type="hidden" name="_method" value="PUT">
 
                     <div class="form-group">
-                        {!! Form::label('title', 'Title:') !!}
+                        {!! Form::label('title', $lang['title'].':') !!}
                         {!! Form::text('title', $product->title, ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('sku', 'Sku:') !!}
+                        {!! Form::label('sku', $lang['sku'].':') !!}
                         {!! Form::text('sku', $product->sku, ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('warehouse', 'Warehouse:') !!}
+                        {!! Form::label('warehouse', $lang['warehouse'].':') !!}
                         {!! Form::select('warehouse_id', $warehouses, $product->warehouses_id, ['class' => 'form-control'])!!}
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('description', 'Description:') !!}
+                        {!! Form::label('description', $lang['description'].':') !!}
                         {!! Form::text('description', $product->description, ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group">
-                        {{ Form::button('Update', ['class' => 'btn btn-default', 'type' => 'submit']) }}
+                        {{ Form::button($lang['edit'], ['class' => 'btn btn-default', 'type' => 'submit']) }}
 
                     </div>
 

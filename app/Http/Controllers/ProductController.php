@@ -6,22 +6,27 @@ use Illuminate\Http\Request;
 use App\Repositories\EloquentProductRepository as rProduct;
 use App\Repositories\EloquentWarehouseRepository as rWarehouse;
 use App\Http\Requests\StoreProduct;
+use App\Repositories\LangRepository as rLang;
 
 
 class ProductController extends Controller
 {
     private $rProduct;
     private $rWarehouse;
+    private $rLang;
+
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(rProduct $rProduct, rWarehouse $rWarehouse)
+    public function __construct(rProduct $rProduct, rWarehouse $rWarehouse, rLang $rLang)
     {
         $this->rProduct = $rProduct;
         $this->rWarehouse = $rWarehouse;
+        $this->rLang = $rLang;
+
     }
 
 
@@ -32,11 +37,13 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $lang = $this->rLang->productsList();
+
         $products = $this->rProduct->all();
 
         $warehouses = $this->rWarehouse->selectWarehouses();
 
-        return view('products.list', compact('products', 'warehouses'));
+        return view('products.list', compact('products', 'warehouses', 'lang'));
     }
 
 
@@ -47,9 +54,11 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $lang = $this->rLang->productsCreate();
+
         $warehouses = $this->rWarehouse->selectWarehouses();
 
-        return view('products.create', compact('warehouses'));
+        return view('products.create', compact('warehouses', 'lang'));
     }
 
 
@@ -89,13 +98,13 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lang = $this->rLang->productsEdit();
 
         $product = $this->rProduct->show($id);
 
         $warehouses = $this->rWarehouse->selectWarehouses();
 
-        return view('products.edit', compact('product', 'warehouses'));
+        return view('products.edit', compact('product', 'warehouses', 'lang'));
     }
 
 

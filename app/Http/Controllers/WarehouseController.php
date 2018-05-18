@@ -5,21 +5,24 @@ namespace App\Http\Controllers;
 use App\Repositories\EloquentWarehouseRepository as rWarehouse;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreWarehouse;
+use App\Repositories\LangRepository as rLang;
 
 
 class WarehouseController extends Controller
 {
     private $rWarehouse;
+    private $rLang;
+
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(rWarehouse $rWarehouse)
+    public function __construct(rWarehouse $rWarehouse, rLang $rLang)
     {
         $this->rWarehouse = $rWarehouse;
-
+        $this->rLang = $rLang;
     }
 
 
@@ -30,9 +33,11 @@ class WarehouseController extends Controller
      */
     public function index()
     {
+        $lang = $this->rLang->warehousesList();
+
         $warehouses = $this->rWarehouse->all();
 
-        return view('warehouses.list', compact('warehouses'));
+        return view('warehouses.list', compact('warehouses', 'lang'));
     }
 
 
@@ -43,7 +48,9 @@ class WarehouseController extends Controller
      */
     public function create()
     {
-        return view('warehouses.create');
+        $lang = $this->rLang->warehousesCreate();
+
+        return view('warehouses.create', compact('lang'));
     }
 
 
@@ -84,11 +91,13 @@ class WarehouseController extends Controller
      */
     public function edit($id)
     {
+        $lang = $this->rLang->warehousesEdit();
+
         $warehouse = $this->rWarehouse->show($id);
 
         $urlLogo = ($warehouse->logo)? $this->rWarehouse->getLogo($warehouse->logo) : null;
 
-        return view('warehouses.edit', compact('warehouse', 'urlLogo'));
+        return view('warehouses.edit', compact('warehouse', 'urlLogo', 'lang'));
     }
 
 

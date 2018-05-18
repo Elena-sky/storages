@@ -12,7 +12,9 @@
 
 
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active">
+                            {{$lang['dashboard']}}
+                        </li>
                     </ol>
 
                 </div>
@@ -26,7 +28,7 @@
             <!-- SELECT2 EXAMPLE -->
 
 
-            <h5 class="mt-4 mb-2">Info Box </h5>
+            <h5 class="mt-4 mb-2">{{$lang['title']}}</h5>
             <div class="row">
 
                 <div class="col-md-6 col-sm-6 col-12">
@@ -34,12 +36,12 @@
                         <span class="info-box-icon"><i class="fa fa-archive"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Warehouses</span>
+                            <span class="info-box-text">{{$lang['warehouse']}}</span>
 
                             <hr>
 
                             <span class="progress-description">
-                  {{$warehousesCount}}  resources in storage
+                  {{$warehousesCount}}  {{$lang['resources']}}
                 </span>
                         </div>
                         <!-- /.info-box-content -->
@@ -54,11 +56,11 @@
                         <span class="info-box-icon"><i class="fa fa-product-hunt"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Products</span>
+                            <span class="info-box-text">{{$lang['products']}}</span>
 
                             <hr>
                             <span class="progress-description">
-                  {{$productsCount}} resources in storage
+                  {{$productsCount}} {{$lang['resources']}}
                 </span>
                         </div>
                         <!-- /.info-box-content -->

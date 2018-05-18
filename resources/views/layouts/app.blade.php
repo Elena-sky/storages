@@ -35,7 +35,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Welcome, {{ Auth::user()->name }}</a>
+                <a href="#" class="nav-link">{{trans('messages.welcome')}}, {{ Auth::user()->name }}</a>
             </li>
         </ul>
 
@@ -47,7 +47,9 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="/" class="brand-link">
-            <span class="brand-text font-weight-light">Storages</span>
+            <span class="brand-text font-weight-light">
+                                        {{trans('titles.storage')}}
+            </span>
         </a>
 
         <!-- Sidebar -->
@@ -58,7 +60,8 @@
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                        Logout
+                        {{trans('auth.logout')}}
+
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -73,12 +76,12 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
 
-                    <li class="nav-header">WAREHOUSE</li>
+                    <li class="nav-header">{{trans('titles.warehouses')}}</li>
                     <li class="nav-item">
                         <a href="{{ route('warehouses.index') }}" class="nav-link">
                             <i class="nav-icon fa fa fa-table"></i>
                             <p>
-                                Show
+                                {{trans('tables.show')}}
                             </p>
                         </a>
                     </li>
@@ -86,17 +89,17 @@
                         <a href="{{ route('warehouses.create') }}" class="nav-link">
                             <i class="nav-icon fa fa-plus-square-o"></i>
                             <p>
-                                Create
+                                {{\Illuminate\Support\Facades\Lang::choice('tables.create', 1)}}
                             </p>
                         </a>
                     </li>
 
-                    <li class="nav-header">PRODUCT</li>
+                    <li class="nav-header">{{trans('titles.products')}}</li>
                     <li class="nav-item">
                         <a href="{{ route('product.index') }}" class="nav-link">
                             <i class="nav-icon fa fa-table"></i>
                             <p>
-                                Show
+                                {{trans('tables.show')}}
                             </p>
                         </a>
                     </li>
@@ -104,7 +107,7 @@
                         <a href="{{ route('product.create') }}" class="nav-link">
                             <i class="nav-icon fa fa-plus-square-o"></i>
                             <p>
-                                Create
+                                {{\Illuminate\Support\Facades\Lang::choice('tables.create', 1)}}
                             </p>
                         </a>
                     </li>

@@ -11,8 +11,8 @@
                     <div class="offset-md-6 col-sm-6">
 
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Warehouse Form</li>
+                            <li class="breadcrumb-item"><a href="/">{{$lang['dashboard']}}</a></li>
+                            <li class="breadcrumb-item active">{{$lang['new_warehouse']}}</li>
                         </ol>
 
                     </div>
@@ -27,7 +27,7 @@
 
                 <div class="offset-md-3 col-sm-6">
 
-                    <h1>New warehouse</h1>
+                    <h1>{{$lang['new_warehouse']}}</h1>
 
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -48,27 +48,27 @@
                         {!! Form::open(array('route' => array('warehouses.store'), 'files' => true)) !!}
 
                         <div class="form-group">
-                            {!! Form::label('title', 'Title:') !!}
+                            {!! Form::label('title', $lang['title'].':') !!}
                             {!! Form::text('title', '', ['class' => 'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('email', 'Email:') !!}
+                            {!! Form::label('email', $lang['email'].':') !!}
                             {!! Form::text('email', '', ['class' => 'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('website', 'Website:') !!}
+                            {!! Form::label('website', $lang['website'].':') !!}
                             {!! Form::text('website', '', ['class' => 'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('logo', 'Logo:') !!}
+                            {!! Form::label('logo', $lang['logo'].':') !!}
                             {!! Form::file('logo')!!}
                         </div>
 
                         <div class="form-group">
-                            {{ Form::button('Create', ['class' => 'btn btn-default', 'type' => 'submit']) }}
+                            {{ Form::button($lang['create'], ['class' => 'btn btn-default', 'type' => 'submit']) }}
 
                         </div>
 

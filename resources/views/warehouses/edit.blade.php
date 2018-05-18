@@ -11,8 +11,8 @@
                     <div class="offset-md-6 col-sm-6">
 
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Warehouse Form</li>
+                            <li class="breadcrumb-item"><a href="/">{{$lang['dashboard']}}</a></li>
+                            <li class="breadcrumb-item active">{{$lang['edit_warehouse']}}</li>
                         </ol>
 
                     </div>
@@ -27,7 +27,7 @@
 
                 <div class="offset-md-3 col-sm-6">
 
-                    <h1>Update warehouse</h1>
+                    <h1>{{$lang['edit_warehouse']}}</h1>
 
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -50,22 +50,22 @@
                         <input type="hidden" name="_method" value="PUT">
 
                         <div class="form-group">
-                                {!! Form::label('title', 'Title:') !!}
+                                {!! Form::label('title', $lang['title'].':') !!}
                                 {!! Form::text('title', $warehouse->title, ['class' => 'form-control']) !!}
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('email', 'Email:') !!}
+                                {!! Form::label('email', $lang['email'].':') !!}
                                 {!! Form::text('email', $warehouse->email, ['class' => 'form-control']) !!}
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('website', 'Website:') !!}
+                                {!! Form::label('website', $lang['website'].':') !!}
                                 {!! Form::text('website', $warehouse->email, ['class' => 'form-control']) !!}
                             </div>
 
                         <div class="form-group ">
-                            {!! Form::label('currentLogo', 'Current logo') !!}
+                            {!! Form::label('currentLogo', $lang['current_logo'].':') !!}
                             <div class="col-sm-12">
 
                                 @if($urlLogo)
@@ -87,12 +87,12 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('logo', 'New Logo:') !!}
+                            {!! Form::label('logo', $lang['newlogo'].':') !!}
                             {!! Form::file('logo')!!}
                         </div>
 
                         <div class="form-group">
-                            {{ Form::button('Update', ['class' => 'btn btn-default', 'type' => 'submit']) }}
+                            {{ Form::button($lang['edit'], ['class' => 'btn btn-default', 'type' => 'submit']) }}
 
                         </div>
 

@@ -11,8 +11,8 @@
                     <div class="offset-md-6 col-sm-6">
 
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Products List</li>
+                            <li class="breadcrumb-item"><a href="/">{{$lang['dashboard']}}</a></li>
+                            <li class="breadcrumb-item active">{{$lang['list']}}</li>
                         </ol>
 
                     </div>
@@ -27,20 +27,20 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">List of products</h3>
+                            <h3 class="card-title">{{$lang['list']}}</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="products" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>Title</th>
-                                    <th>Sku</th>
-                                    <th>Warehouse</th>
-                                    <th>Description</th>
-                                    <th>Create</th>
+                                    <th>{{$lang['title']}}</th>
+                                    <th>{{$lang['sku']}}</th>
+                                    <th>{{$lang['warehouse']}}</th>
+                                    <th>{{$lang['description']}}</th>
+                                    <th>{{$lang['create']}}e</th>
                                     <th></th>
-                                    <th>Delete</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -57,11 +57,14 @@
                                     <td>{{$item->description}}</td>
                                     <td>
                                         <a href="{{ route( 'product.edit', $item->id) }}">
-                                            <button type="button" class="btn btn-secondary">Edit</button>
+                                            <button type="button" class="btn btn-secondary">
+                                                {{$lang['edit']}}
+                                            </button>
                                         </a>
                                     </td>
                                     <td>
-                                        <button type="button" data-product-id= "{{$item->id}}" class="btn btn-danger product">Delete
+                                        <button type="button" data-product-id= "{{$item->id}}" class="btn btn-danger product">
+                                            {{$lang['delete']}}
                                         </button>
                                     </td>
                                 </tr>
@@ -70,11 +73,11 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th>Title</th>
-                                    <th>Sku</th>
-                                    <th>Warehouse</th>
-                                    <th>Description</th>
-                                    <th>Create</th>
+                                    <th>{{$lang['title']}}</th>
+                                    <th>{{$lang['sku']}}</th>
+                                    <th>{{$lang['warehouse']}}</th>
+                                    <th>{{$lang['description']}}</th>
+                                    <th>{{$lang['create']}}e</th>
                                     <th></th>
                                     <th></th>
                                 </tr>

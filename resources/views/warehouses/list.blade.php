@@ -11,8 +11,8 @@
                     <div class="offset-md-6 col-sm-6">
 
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Warehouse List</li>
+                            <li class="breadcrumb-item"><a href="/">{{$lang['dashboard']}}</a></li>
+                            <li class="breadcrumb-item active">{{$lang['list']}}</li>
                         </ol>
 
                     </div>
@@ -27,72 +27,75 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">List of warehouses</h3>
+                            <h3 class="card-title">{{$lang['list']}}</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="warehouses" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                <th>Title</th>
-                                <th>Email</th>
-                                <th>Logo</th>
-                                <th>Website</th>
-                                <th>Create</th>
-                                <th></th>
-                                <th>Delete</th>
+                                    <th>{{$lang['title']}}</th>
+                                    <th>{{$lang['email']}}</th>
+                                    <th>{{$lang['logo']}}</th>
+                                    <th>{{$lang['website']}}</th>
+                                    <th>{{$lang['create']}}</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($warehouses as $item)
                                 <tr id="{{$item->id}}">
-                                <td>{{$item->title}}</td>
-                                <td>{{$item->email}}</td>
-                                <td>
-                                    @if(\App\Repositories\LogoRepository::getUrlLogo($item->logo))
+                                    <td>{{$item->title}}</td>
+                                    <td>{{$item->email}}</td>
+                                    <td>
+                                        @if(\App\Repositories\LogoRepository::getUrlLogo($item->logo))
 
-                                        <div class="col-sm-4">
-                                            <img src="{{url(\App\Repositories\LogoRepository::getUrlLogo($item->logo))}}" width="100px" alt="Logo Image"/>
-                                        </div>
+                                            <div class="col-sm-4">
+                                                <img src="{{url(\App\Repositories\LogoRepository::getUrlLogo($item->logo))}}" width="100px" alt="Logo Image"/>
+                                            </div>
 
-                                    @else
+                                        @else
 
-                                        <div class="col-sm-4">
-                                            <img src="{{ asset("/img/no_picture.jpg") }}" width="100px"
-                                                 alt="{{'no_picture'}}">
-                                        </div>
+                                            <div class="col-sm-4">
+                                                <img src="{{ asset("/img/no_picture.jpg") }}" width="100px"
+                                                     alt="{{'no_picture'}}">
+                                            </div>
 
-                                    @endif
+                                        @endif
 
-                                </td>
-                                <td>
-                                    <a href="{{$item->website}}">
-                                        {{$item->website}}
-                                    </a>
-                                </td>
-                                <td>{{$item->created_at}}</td>
-                                <td>
-                                    <a href="{{ route( 'warehouses.edit', $item->id) }}">
-                                        <button type="button" class="btn btn-secondary">Edit</button>
-                                    </a>
-                                </td>
-                                <td>
-                                    <button type="button" data-warehouse-id= "{{$item->id}}" class="btn btn-danger warehouses">Delete
-                                    </button>
-                                </td>
+                                    </td>
+                                    <td>
+                                        <a href="{{$item->website}}">
+                                            {{$item->website}}
+                                        </a>
+                                    </td>
+                                    <td>{{$item->created_at}}</td>
+                                    <td>
+                                        <a href="{{ route( 'warehouses.edit', $item->id) }}">
+                                            <button type="button" class="btn btn-secondary">
+                                                {{$lang['edit']}}
+                                            </button>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <button type="button" data-warehouse-id= "{{$item->id}}" class="btn btn-danger warehouses">
+                                            {{$lang['delete']}}
+                                        </button>
+                                    </td>
                                 </tr>
                                 @endforeach
 
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                <th>Title</th>
-                                <th>Email</th>
-                                <th>Logo</th>
-                                <th>Website</th>
-                                <th>Create</th>
-                                <th></th>
-                                <th></th>
+                                    <th>{{$lang['title']}}</th>
+                                    <th>{{$lang['email']}}</th>
+                                    <th>{{$lang['logo']}}</th>
+                                    <th>{{$lang['website']}}</th>
+                                    <th>{{$lang['create']}}</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                                 </tfoot>
                             </table>

@@ -11,8 +11,8 @@
                     <div class="offset-md-6 col-sm-6">
 
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Product Form</li>
+                            <li class="breadcrumb-item"><a href="/">{{$lang['dashboard']}}</a></li>
+                            <li class="breadcrumb-item active">{{$lang['new_product']}}</li>
                         </ol>
 
                     </div>
@@ -27,7 +27,7 @@
 
                 <div class="offset-md-3 col-sm-6">
 
-                    <h1>New product</h1>
+                    <h1>{{$lang['new_product']}}</h1>
 
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -48,27 +48,27 @@
                         {!! Form::open(array('route' => array('product.store'))) !!}
 
                         <div class="form-group">
-                            {!! Form::label('title', 'Title:') !!}
+                            {!! Form::label('title', $lang['title'].':') !!}
                             {!! Form::text('title', '', ['class' => 'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('sku', 'Sku:') !!}
+                            {!! Form::label('sku', $lang['sku'].':') !!}
                             {!! Form::text('sku', '', ['class' => 'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('warehouse', 'Warehouse:') !!}
+                            {!! Form::label('warehouse', $lang['warehouse'].':') !!}
                             {!! Form::select('warehouse_id', $warehouses, ['class' => 'form-control'])!!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('description', 'Description:') !!}
+                            {!! Form::label('description', $lang['description'].':') !!}
                             {!! Form::text('description', '', ['class' => 'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            {{ Form::button('Create', ['class' => 'btn btn-default', 'type' => 'submit']) }}
+                            {{ Form::button($lang['create'], ['class' => 'btn btn-default', 'type' => 'submit']) }}
 
                         </div>
 
