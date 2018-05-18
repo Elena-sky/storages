@@ -16,6 +16,7 @@ class UpdateProductssTable extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->integer('warehouses_id')->unsigned()->index();
             $table->foreign('warehouses_id')->references('id')->on('warehouses')->onDelete('cascade');
+            $table->text('description')->nullable();
         });
     }
 

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Auth::routes();
@@ -22,5 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group([ 'middleware' => 'auth'], function(){
 
     Route::resource('warehouses', 'WarehouseController');
+
+    Route::resource('product', 'ProductController');
 
 });
