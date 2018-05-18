@@ -10,6 +10,7 @@ use App\Http\Requests\StoreWarehouse;
 class WarehouseController extends Controller
 {
     private $rWarehouse;
+
     /**
      * Create a new controller instance.
      *
@@ -20,6 +21,7 @@ class WarehouseController extends Controller
         $this->rWarehouse = $rWarehouse;
 
     }
+
 
     /**
      * Display a listing of the resource.
@@ -33,6 +35,7 @@ class WarehouseController extends Controller
         return view('warehouses.list', compact('warehouses'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -42,6 +45,7 @@ class WarehouseController extends Controller
     {
         return view('warehouses.create');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -59,6 +63,7 @@ class WarehouseController extends Controller
             ->with('status', 'Warehouse - ' . $request['title'] . ' stored');
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -69,6 +74,7 @@ class WarehouseController extends Controller
     {
         //
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -84,6 +90,7 @@ class WarehouseController extends Controller
 
         return view('warehouses.edit', compact('warehouse', 'urlLogo'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -101,6 +108,7 @@ class WarehouseController extends Controller
             ->with('status', 'Warehouse - ' . $request['title'] . ' updated');
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -110,7 +118,5 @@ class WarehouseController extends Controller
     public function destroy($id)
     {
         $this->rWarehouse->destroy($id);
-
-        return;
     }
 }

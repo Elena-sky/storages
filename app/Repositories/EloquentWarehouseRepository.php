@@ -113,5 +113,20 @@ class EloquentWarehouseRepository extends LogoRepository
         Warehouses::destroy($id);
     }
 
+    /**
+     * Get id and title for select, route('product.create')
+     *
+     * @return array
+     */
+    public static function selectWarehouses()
+    {
+        $warehouse = [];
+        $warehouses = Warehouses::all();
+        foreach ($warehouses as $item) {
+            $warehouse[$item->id] = $item->title;
+        }
+        return $warehouse;
+    }
+
 
 }
